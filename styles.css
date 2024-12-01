@@ -1,0 +1,616 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+/* Hide the navigation menu by default on small screens */
+.nav-links.hidden {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background-color: #333;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+/* Responsive Styles for Navbar */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none; /* Hide the menu initially */
+  }
+
+  .nav-links.hidden {
+    display: flex; /* Show the menu when toggled */
+  }
+}
+
+/* Slider Section */
+
+/* Slider Section */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 500px; /* Set the desired height */
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  height: 100%; /* Matches the height of the slider */
+  animation: slide 10s infinite;
+}
+
+.slide {
+  flex: 1 0 100%; /* Each slide takes up 100% width */
+  height: 100%;
+}
+
+.slide img {
+  width: 100%; /* Full width of the slide */
+  height: 100%; /* Full height of the slider */
+  object-fit: contain; /* Ensure the entire image is visible without being cropped */
+}
+
+/* Keyframes for Sliding Effect */
+@keyframes slide {
+  0% { transform: translateX(0); }
+  33% { transform: translateX(-100%); }
+  66% { transform: translateX(-200%); }
+  100% { transform: translateX(0); }
+}
+
+/* Responsive Styles for Slider */
+@media (max-width: 768px) {
+  .slider {
+    height: 130px; /* Smaller height for tablets and small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .slider {
+    height: 100px; /* Even smaller height for very small screens */
+  }
+}
+
+
+
+
+/* Treatment Section */
+.treatment-section {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.treatment-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+  position: relative;
+}
+
+.treatment-section h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #5eb562;
+  margin: 0.5rem auto 0;
+}
+
+.treatment-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.treatment-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.treatment-card img {
+  width: 250px;
+  height: 300px;
+  margin-bottom: 1rem;
+}
+
+.treatment-card h3 {
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
+}
+
+.treatment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Grid for Treatment Section */
+@media (max-width: 768px) {
+  .treatment-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .treatment-card img {
+    width: 150px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .treatment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .treatment-card img {
+    width: 250px;
+    height: auto;
+  }
+}
+
+
+.how-it-works {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.how-it-works h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+  position: relative;
+}
+
+.how-it-works h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #5eb562;
+  margin: 0.5rem auto 0;
+}
+
+.steps-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.step-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.step-card .icon {
+  margin-bottom: 1rem;
+}
+
+.step-card .icon img {
+  width: 147px;
+  height: auto;
+}
+
+.step-card h3 {
+  font-size: 1rem;
+  color: #5eb562;
+  margin-bottom: 0.5rem;
+}
+
+.step-card h4 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.step-card p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .steps-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .step-card .icon img {
+    width: 147px;
+  }
+}
+
+@media (max-width: 480px) {
+  .steps-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px;
+}
+
+.left {
+  width: 40%;
+  padding: 20px;
+  background-color: #2939b929;;
+}
+
+.right {
+  width: 55%;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+#intro-text,
+#message-text {
+  font-size: 1.2em;
+  color: #555;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1em;
+  margin: 10px 0 5px;
+}
+
+input, textarea {
+  padding: 10px;
+  font-size: 1em;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+#response-message {
+  margin-top: 20px;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .contact-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .left, .right {
+      width: 90%;
+      padding: 15px;
+  }
+
+  h2 {
+      font-size: 1.8em;
+  }
+
+  #intro-text, #message-text {
+      font-size: 1.1em;
+  }
+
+  input, textarea {
+      font-size: 0.95em;
+      padding: 8px;
+  }
+
+  button {
+      padding: 12px 25px;
+      font-size: 1.2em;
+  }
+}
+
+/* For very small screens like mobile phones */
+@media (max-width: 480px) {
+  .contact-container {
+      margin: 10px;
+  }
+
+  .left, .right {
+      width: 100%;
+  }
+
+  h2 {
+      font-size: 1.5em;
+  }
+
+  #intro-text, #message-text {
+      font-size: 1em;
+  }
+
+  input, textarea {
+      font-size: 0.9em;
+      padding: 7px;
+  }
+
+  button {
+      font-size: 1em;
+      padding: 10px 15px;
+  }
+}
+
+
+
+
+#footer {
+  background-color: #F5F5F5;
+  padding: 40px;
+  border-top: 2px solid #ddd;
+}
+
+#footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#footer-left, #footer-middle, #footer-right, #footer-contact {
+  flex: 1;
+  padding: 20px;
+  margin: 10px;
+  min-width: 250px;
+}
+
+#footer-logo {
+  font-size: 2em;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+#footer-text, #footer-discover-text, #footer-shop-text, #footer-contact-text {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+}
+
+a {
+  text-decoration: none;
+  color: #555;
+  font-size: 1em;
+}
+
+a:hover {
+  color: #3498db;
+}
+
+/* Styling for the subscribe form */
+#footer-subscribe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#footer-name, #footer-email-address {
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#footer-subscribe-button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+}
+
+#footer-subscribe-button:hover {
+  background-color: #2980b9;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  #footer-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  #footer-left, #footer-middle, #footer-right, #footer-contact {
+      width: 100%;
+      text-align: center;
+  }
+
+  #footer-logo {
+      font-size: 1.8em;
+  }
+
+  #footer-text, #footer-discover-text, #footer-shop-text {
+      font-size: 1em;
+  }
+
+  #footer-subscribe-form {
+      width: 80%;
+      margin-top: 20px;
+  }
+
+  #footer-name, #footer-email-address {
+      font-size: 0.95em;
+  }
+
+  #footer-subscribe-button {
+      font-size: 1em;
+  }
+}
+
+/* For very small screens like mobile phones */
+@media (max-width: 480px) {
+  #footer-container {
+      padding: 20px;
+  }
+
+  #footer-logo {
+      font-size: 1.5em;
+  }
+
+  #footer-text, #footer-discover-text, #footer-shop-text {
+      font-size: 0.9em;
+  }
+
+  #footer-name, #footer-email-address {
+      font-size: 0.9em;
+      padding: 8px;
+  }
+
+  #footer-subscribe-button {
+      font-size: 1em;
+  }
+}
+
+/* WhatsApp Chat Button */
+#whatsapp-chat {
+  position: fixed;
+  bottom: 20px;  /* Position from the bottom */
+  right: 20px;   /* Position from the right */
+  z-index: 1000; /* Keep the button on top */
+}
+
+#whatsapp-link {
+  display: flex;
+  align-items: center;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50px;
+  padding: 12px 20px;
+  font-size: 1em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+#whatsapp-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+#whatsapp-text {
+  font-weight: bold;
+}
+
+/* Hover Effect */
+#whatsapp-link:hover {
+  background-color: #128C7E;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+  #whatsapp-chat {
+      bottom: 10px; /* Adjust position for mobile */
+      right: 10px;  /* Adjust position for mobile */
+  }
+
+  #whatsapp-link {
+      font-size: 0.9em; /* Smaller font size for mobile */
+      padding: 10px 15px; /* Adjust padding for smaller screens */
+  }
+
+  #whatsapp-icon {
+      width: 35px;  /* Adjust icon size */
+      height: 35px; /* Adjust icon size */
+  }
+
+  #whatsapp-text {
+      display: none; /* Hide text for smaller screens */
+  }
+}
+
+
+
+
+

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar with Hamburger Menu</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <h1>Welcome to Lfanto</h1>
+    <!-- Hamburger Icon -->
+    <div class="hamburger" id="hamburger">
+      &#9776;
+    </div>
+    <nav>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Slider Section
+  <section id="home" class="slider">
+    <div class="slides">
+      <div class="slide" style="background-image: url('Image/ban.jpg');"></div>
+      <div class="slide" style="background-image: url('Image/banner 2.jpg');"></div>
+      <div class="slide" style="background-image: url('images/slide3.jpg');"></div>
+    </div>
+  </section> -->
+  <!-- <div class="slides">
+    <div class="slide">
+      <img src="Image/ban.jpg" alt="Banner 1">
+    </div>
+    <div class="slide">
+      <img src="Image/banner 2.jpg" alt="Banner 2">
+    </div>
+    <div class="slide">
+      <img src="images/slide3.jpg" alt="Banner 3">
+    </div>
+  </div> -->
+  <section id="home" class="slider">
+    <div class="slides">
+      <div class="slide">
+        <img src="Image/ban.jpg" alt="Slide 1">
+      </div>
+      <div class="slide">
+        <img src="Image/banner 2.jpg" alt="Slide 2">
+      </div>
+      <div class="slide">
+        <img src="Image/ban1.jpg" alt="Slide 3">
+      </div>
+    </div>
+  </section>
+  
+  
+
+  <!-- Treatment Section -->
+  <section class="treatment-section">
+    <h2>What We Treat</h2>
+    <div class="treatment-grid">
+      <div class="treatment-card">
+        <img src="Image/+.png" alt="Diabetic Care">
+        <h3>MANHOOD +</h3>
+      </div>
+      <div class="treatment-card">
+        <img src="Image/pro.png" alt="Weight Management">
+        <h3>MANHOOD PRO</h3>
+      </div>
+      <div class="treatment-card">
+        <img src="Image/max.png" alt="Sexual Wellness">
+        <h3>MANHOOD MAX</h3>
+      </div>
+      <div class="treatment-card">
+        <img src="Image/pro+.png" alt="Hair Care">
+        <h3>MANHOOD PRO +</h3>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="how-it-works">
+    <h2>How it Works</h2>
+    <div class="steps-container">
+      <!-- Step 1 -->
+      <div class="step-card">
+        <div class="icon">
+          <img src="Image/as.png" alt="Step 1 Icon">
+        </div>
+        <h3>Step 1</h3>
+        <h4>AI-Powered Health Assessment</h4>
+        <p>Complete a simple health assessment test to identify the root cause of your concern.</p>
+      </div>
+      <!-- Step 2 -->
+      <div class="step-card">
+        <div class="icon">
+          <img src="Image/dc man.png" alt="Step 2 Icon">
+        </div>
+        <h3>Step 2</h3>
+        <h4>Doctor Consultation</h4>
+        <p>Our team of doctors will guide you through a comprehensive online evaluation.</p>
+      </div>
+      <!-- Step 3 -->
+      <div class="step-card">
+        <div class="icon">
+          <img src="Image/dc.jpg" alt="Step 3 Icon">
+        </div>
+        <h3>Step 3</h3>
+        <h4>Customized Treatment</h4>
+        <p>Receive a customized treatment based on comprehensive and accurate diagnostics.</p>
+      </div>
+      <!-- Step 4 -->
+      <div class="step-card">
+        <div class="icon">
+          <img src="Image/cust.png" alt="Step 4 Icon">
+        </div>
+        <h3>Step 4</h3>
+        <h4>Ongoing Care</h4>
+        <p>Get a progress review from a doctor and access to a health expert throughout your journey.</p>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <div class="contact-container">
+    <div class="left">
+        <h2 id="chat-header">Let's Chat</h2>
+        <p id="intro-text">Whether you have a question, want to start a project or simply want to connect.</p>
+        <p id="message-text">Feel free to send me a message in the contact form.</p>
+    </div>
+    <div class="right">
+        <h2 id="contact-header">Contact</h2>
+        <form id="contact-form">
+            <label for="name" id="name-label">Name *</label>
+            <input type="text" id="name" required>
+
+            <label for="email" id="email-label">Email *</label>
+            <input type="email" id="email" required>
+
+            <label for="company" id="company-label">Address</label>
+            <input type="text" id="company">
+
+            <label for="phone" id="phone-label">Phone</label>
+            <input type="text" id="phone">
+
+            <label for="message" id="message-label">Message</label>
+            <textarea id="message" rows="4" required></textarea>
+
+            <button type="button" id="submit-button" onclick="submitForm()">Submit</button>
+        </form>
+        <div id="response-message"></div>
+    </div>
+</div>
+
+<script>
+    function submitForm() {
+        // Get form values
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const company = document.getElementById("company").value;
+        const phone = document.getElementById("phone").value;
+        const message = document.getElementById("message").value;
+
+        // Check if all required fields are filled
+        if (name && email && message) {
+            // Display success message
+            document.getElementById("response-message").innerHTML = `<p style="color:green;">Thank you, ${name}! Your message has been sent successfully.</p>`;
+            document.getElementById("contact-form").reset(); // Clear form after submission
+        } else {
+            // Display error message
+            document.getElementById("response-message").innerHTML = `<p style="color:red;">Please fill in all required fields.</p>`;
+        }
+    }
+</script>
+
+  <!-- About Section -->
+  <!-- <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>This is a simple single-page website with a slider.</p>
+  </section>
+
+  
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>Email: example@example.com</p>
+  </section> -->
+
+  <!-- Footer Section -->
+  <footer id="footer">
+    <div id="footer-container">
+        <div id="footer-left">
+            <h3 id="footer-logo">Lfanto</h3>
+            <p id="footer-text">What We Treat</p>
+            <ul id="footer-links">
+                <li><a href="#" id="link-sexual-wellness">Sexual Wellness</a></li>
+                <li><a href="#" id="link-weight-management">Weight Management</a></li>
+                <li><a href="#" id="link-hair-care">Hair Care</a></li>
+                <li><a href="#" id="link-diabetic-care">Diabetic Care</a></li>
+                <li><a href="#" id="link-women-wellness">Women Wellness</a></li>
+            </ul>
+        </div>
+
+        <div id="footer-middle">
+            <p id="footer-discover-text">Discover</p>
+            <ul id="footer-discover">
+                <li><a href="#" id="link-about-us">About Us</a></li>
+                <li><a href="#" id="link-how-it-works">How it Works</a></li>
+                <li><a href="#" id="link-our-doctors">Our Doctors</a></li>
+                <li><a href="#" id="link-media">Media</a></li>
+            </ul>
+        </div>
+
+        <div id="footer-right">
+            <p id="footer-shop-text">Shop All</p>
+            <ul id="footer-shop">
+                <li><a href="#" id="link-wellness">Wellness</a></li>
+                <li><a href="#" id="link-daily-nutrition">Daily Nutrition</a></li>
+                <li><a href="#" id="link-fitness">Fitness</a></li>
+                <li><a href="#" id="link-skin-care">Skin Care</a></li>
+                <li><a href="#" id="link-hair-care-shop">Hair Care</a></li>
+            </ul>
+        </div>
+
+        <div id="footer-contact">
+            <p id="footer-contact-text">Contact</p>
+            <p id="footer-email">Email: info@lfanto.com</p>
+            <p id="footer-helpline">Helpline: 0124 481 1144</p>
+            <p id="footer-subscribe-text">It's easy to connect and be healthy</p>
+            <form id="footer-subscribe-form">
+                <input type="text" id="footer-name" placeholder="Your Name" required>
+                <input type="email" id="footer-email-address" placeholder="Email Address" required>
+                <button type="submit" id="footer-subscribe-button">Subscribe</button>
+            </form>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp Chat Button -->
+<div id="whatsapp-chat">
+  <a href="https://wa.me/917836900642?text=Hello%20I%20need%20help" id="whatsapp-link" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" id="whatsapp-icon"/>
+      <span id="whatsapp-text">Chat with us on WhatsApp</span>
+  </a>
+</div>
+
+
+  <!-- Script -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
